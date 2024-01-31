@@ -11,6 +11,13 @@ java {
 	sourceCompatibility = JavaVersion.VERSION_17
 }
 
+
+configurations {
+	compileOnly {
+		extendsFrom(configurations.annotationProcessor.get())
+	}
+}
+
 repositories {
 	mavenCentral()
 }
@@ -21,6 +28,10 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	runtimeOnly("com.mysql:mysql-connector-j")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	compileOnly("org.projectlombok:lombok")
+	annotationProcessor("org.projectlombok:lombok")
+
+	testImplementation("org.springframework.security:spring-security-test")
 }
 
 tasks.withType<Test> {
