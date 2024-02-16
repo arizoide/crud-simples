@@ -11,19 +11,13 @@
 
     Entrar:
     <br>
-    <form th:object="${loginDTO}" th:action="@{/entrar}" method="post">
-        <label for="email">E-mail:</label>
-        <input th:field="*{email}" id="email" type="email">
-        <br>
-        <label for="senha">Senha:</label>
-        <input th:field="*{senha}" id="senha" type="password">
-        <br><br>
-        <input type="submit" value="Entrar">
-    </form>
 
+    <a href="cad_pessoa">Cadastrar Pessoa</a><br><br>
 
-    <br><br> <br><br>
+    <a sec:authorize="hasRole('ROLE_ADMIN')" href="admin">ADMIN</a><br><br>
 
-    <a href="cad_pessoa">Cadastrar Pessoa</a>
+    <a sec:authorize="hasRole('ROLE_USER')" href="user-comum">USUÁRIO COMUM</a><br><br>
+
+    <a sec:authorize="isAuthenticated()" href="user-comum">Qualquer um autenticado</a><br><br>
 </body>
 </html>

@@ -1,7 +1,5 @@
 package com.senac.br.crud.simples.controller;
 
-import com.senac.br.crud.simples.dto.LoginDTO;
-import com.senac.br.crud.simples.model.Pessoa;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -9,8 +7,28 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class IndexController {
 
     @GetMapping("/")
-    public String abrirIndex(LoginDTO login){
+    public String abrirIndex(){
         return "index";
+    }
+
+    @GetMapping("/login")
+    public String getLoginPage() {
+        return "login_page";
+    }
+
+    @GetMapping("/login-sucess")
+    public String getLoginSucess() {
+        return "login-sucess";
+    }
+
+    @GetMapping("/admin")
+    public String getPaginaAdmin() {
+        return "administrador";
+    }
+
+    @GetMapping("/user-comum")
+    public String getPaginaComum() {
+        return "comum";
     }
 
 }
